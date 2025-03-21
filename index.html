@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivinha o Quanto Eu Te Amo? 💖</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #ff1493;
+            padding-top: 50px;
+        }
+        input, button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px;
+        }
+        #love-img {
+            margin-top: 20px;
+            max-width: 80%;
+            max-height: 80vh;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adivinha o quanto eu te amo? 💖</h1>
+    <input id="guess" type="text" placeholder="Digite sua resposta...">
+    <button onclick="checkGuess()">Adivinhar</button>
+
+    <div id="message"></div>
+    <img id="love-img" src="" style="display:none;" alt="Imagem fofa">
+
+    <script>
+        const secretWords = ["infinito"];
+        const wrongMessages = [
+            "Nop, ta me devendo mil beijos 😘",
+            "Hmmm... Não é isso! Ta me devendo um beijo 💭",
+            "Errado, mas ainda te amo! 💖",
+            "Acho que esse erro cria um débito de trilhões de beijos! 💪"
+        ];
+        const catImages = ["cat1.jpg", "capivara1.jpg", "duck1.jpg"];
+        const loveImages = ["heart1.jpg", "heart2.jpg"];
+
+        const secretWord = secretWords[Math.floor(Math.random() * secretWords.length)];
+
+        // Função para normalizar (remover acentos)
+        function normalizeText(text) {
+            return text.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+        }
+
+        function checkGuess() {
+            const guess = normalizeText(document.getElementById('guess').value.trim().toLowerCase());
+            const normalizedSecret = normalizeText(secretWord);
+            const messageDiv = document.getElementById('message');
+
+            if (guess.includes(normalizedSecret)) {
+                messageDiv.innerHTML = `Você QUASE acertou! Meu amor é imensurável não só ${secretWord}! ❤️`;
+                showImage(loveImages);
+            } else {
+                messageDiv.innerHTML = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+                showImage(catImages);
+            }
+        }
+
+        function showImage(images) {
+            const img = document.getElementById('love-img');
+            img.src = images[Math.floor(Math.random() * images.length)];
+            img.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
