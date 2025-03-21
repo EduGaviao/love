@@ -62,7 +62,7 @@
             const messageDiv = document.getElementById('message');
 
             if (guess.includes(normalizedSecret)) {
-                messageDiv.innerHTML = `ISSO É O MAIS PRÓXIMO DE UMA RESPOSTA CERTA. Você QUASE acertou! Meu amor é imensurável não só ${secretWord}! ❤️`;
+                messageDiv.innerHTML = `ISSO É O MAIS PRÓXIMO DE UMA RESPOSTA CERTA. <br> Você QUASE acertou! Meu amor é imensurável não só ${secretWord}! ❤️`;
                 showImage(loveImages);
             } else {
                 messageDiv.innerHTML = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
