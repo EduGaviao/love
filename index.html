@@ -34,7 +34,7 @@
     <img id="love-img" src="" style="display:none;" alt="Imagem fofa">
 
     <script>
-        const secretWords = ["infinito"];
+        const secretWords = ["infinito","infinitamente"];
         const wrongMessages = [
             "Nop, ta me devendo mil beijos 😘",
             "Hmmm... Não é isso! Ta me devendo um beijo 💭",
@@ -47,7 +47,7 @@
             "Tenta de novo, mas agora aposto um beijo que você erra ou acerta 😘"
         ];
         const catImages = ["cat1.jpg","cat2.jpg","cat3.jpg","cat4.jpg", "capivara1.jpg", "duck1.jpg","lontra1.jpg","dog1.jpg","dog2.jpg","dog3.jpg"];
-        const loveImages = ["heart1.jpg", "heart2.jpg"];
+        const loveImages = ["heart1.jpg", "heart2.jpg", "heart3.jpg", "heart4.jpg", "heart5.jpg", "heart6.jpg", "heart7.jpg", "heart8.jpg", "heart9.jpg"];
 
         const secretWord = secretWords[Math.floor(Math.random() * secretWords.length)];
 
@@ -62,7 +62,7 @@
             const messageDiv = document.getElementById('message');
 
             if (guess.includes(normalizedSecret)) {
-                messageDiv.innerHTML = `Você QUASE acertou! Meu amor é imensurável não só ${secretWord}! ❤️`;
+                messageDiv.innerHTML = `ISSO É O MAIS PRÓXIMO DE UMA RESPOSTA CERTA. Você QUASE acertou! Meu amor é imensurável não só ${secretWord}! ❤️`;
                 showImage(loveImages);
             } else {
                 messageDiv.innerHTML = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
